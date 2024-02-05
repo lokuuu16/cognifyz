@@ -1,12 +1,12 @@
-temp=float(input("enter the temperature value:"))
-unit_o_m=input("enter the unit of the entered value's temperature(C/F):")
-if unit_o_m=="C":
-    F=round((temp*(9/5))+32,2)
-    print("The equivalent fahrenhent value is:",F,"fahrenheit")
+import re
+#email validation using regular experessions i.e,regex
+pattern_emailv=r'^[A-Za-z0-9.-_+%&*]+@[A-Za-z0-9.-]+\.[a-zA-Z]{2,5}$'
 
-elif unit_o_m=="F":
-    C=round((temp-32)*(5/9),2)
-    print("The equivalent celsius value is:",C,"celsius")
+def validate(email):
+    if(re.fullmatch(pattern_emailv,email)):
+        print("the email address is valid")
+    else:
+        print("the email address is invalide")
 
-else:
-    print("enter valid unit of temperature(C/F)")
+email=input("Enter the email address to be validate:")
+validate(email)
